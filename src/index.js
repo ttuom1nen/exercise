@@ -3,12 +3,20 @@ import ReactDOM from "react-dom";
 
 // Use faker for dummy data
 import faker from "faker";
-import CommentDetail from "./CommentDetail";
+import CommentDetail from "./components/CommentDetail";
+import ApprovalCard from "./components/ApprovalCard";
 
 const App = () => {
   return (
     <div className="ui container comments">
-      <CommentDetail />
+      <ApprovalCard>
+        <CommentDetail
+          author="Sam"
+          timeAgo="12:00"
+          content="Nice blog post, man!"
+          avatar={faker.image.avatar()}
+        />
+      </ApprovalCard>
     </div>
   );
 };
