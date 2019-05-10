@@ -6,6 +6,12 @@ import faker from "faker";
 import CommentDetail from "./components/CommentDetail";
 import ApprovalCard from "./components/ApprovalCard";
 
+/*
+const users = fetch("https://jsonplaceholder.typicode.com/users")
+.then(response => response.json())
+.then(json => console.log(json));
+*/
+
 const App = () => {
   return (
     <div className="ui container comments">
