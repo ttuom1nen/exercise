@@ -5,6 +5,7 @@ import ReactDOM from "react-dom";
 import faker from "faker";
 import CommentDetail from "./components/CommentDetail";
 import ApprovalCard from "./components/ApprovalCard";
+import { timingSafeEqual } from "crypto";
 
 /*
 fetch("https://jsonplaceholder.typicode.com/users")
@@ -45,13 +46,14 @@ class App extends React.Component {
   }
 
   render() {
-    return (
-      <div>
-        Latitude: {this.state.lat}
-        <br />
-        Error:{this.state.errorMessage}
-      </div>
-    );
+    if (this.state.errorMessage && !this.state.lat) {
+      return <div>Error:{this.state.errorMessage}</div>;
+    }
+
+    if (!this.state.errorMessage && this.state.lat) {
+      return <div>Latitude:{this.state.lat}</div>;
+    }
+    return <div>Loading...</div>;
   }
 }
 
