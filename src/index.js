@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import SeasonDisplay from "./components/SeasonDisplay";
+import Spinner from "./components/Spinner";
 
 // Use faker for dummy data
 import faker from "faker";
@@ -48,7 +49,7 @@ class App extends React.Component {
     if (!this.state.errorMessage && this.state.lat) {
       return <SeasonDisplay lat={this.state.lat} />;
     }
-    return <div>Loading...</div>;
+    return <Spinner message="Please accept location request" />;
   }
 }
 
