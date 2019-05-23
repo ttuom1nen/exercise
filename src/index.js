@@ -13,9 +13,7 @@ import { timingSafeEqual } from "crypto";
 fetch("https://jsonplaceholder.typicode.com/users")
   .then(response => response.json())
   .then(json => console.log(json));
-*/
 
-/*
 const App = () => {
   return (
     <div className="ui container comments">
