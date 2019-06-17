@@ -3,17 +3,10 @@ import ReactDOM from "react-dom";
 import SeasonDisplay from "./components/SeasonDisplay";
 import Spinner from "./components/Spinner";
 
-// Use faker for dummy data
-import faker from "faker";
 import CommentDetail from "./components/CommentDetail";
 import ApprovalCard from "./components/ApprovalCard";
-import { timingSafeEqual } from "crypto";
 
 /*
-fetch("https://jsonplaceholder.typicode.com/users")
-  .then(response => response.json())
-  .then(json => console.log(json));
-
 const App = () => {
   return (
     <div className="ui container comments">
@@ -33,6 +26,10 @@ class App extends React.Component {
   state = { lat: null, errorMessage: "" };
 
   componentDidMount() {
+    fetch("https://jsonplaceholder.typicode.com/users")
+      .then(response => response.json())
+      .then(json => console.log(json));
+
     window.navigator.geolocation.getCurrentPosition(
       position => this.setState({ lat: position.coords.latitude }),
       err => this.setState({ errorMessage: err.message })
