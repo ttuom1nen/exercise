@@ -1,6 +1,7 @@
 import React from "react";
 import SeasonDisplay from "./SeasonDisplay";
 import Spinner from "./Spinner";
+import PostList from "./PostList";
 
 import CommentDetail from "./CommentDetail";
 import ApprovalCard from "./ApprovalCard";
@@ -31,7 +32,14 @@ class App extends React.Component {
   }
 
   render() {
-    return <div className="border red">{this.renderContent()}</div>;
+    return (
+      <div className="ui container">
+        <div className="season">{this.renderContent()}</div>
+        <div className="">
+          <PostList />
+        </div>
+      </div>
+    );
   }
 }
 

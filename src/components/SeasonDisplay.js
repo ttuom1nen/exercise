@@ -4,11 +4,13 @@ import React from "react";
 const seasonConfig = {
   summer: {
     text: "Vamos Ala Playa!",
-    iconName: "sun"
+    iconName: "sun",
+    color: "yellow"
   },
   winter: {
     text: "It's cold!",
-    iconName: "snowflake"
+    iconName: "snowflake",
+    color: "blue"
   }
 };
 
@@ -22,14 +24,13 @@ const getSeason = (lat, month) => {
 
 const SeasonDisplay = props => {
   const season = getSeason(props.lat, new Date().getMonth());
-  const { text, iconName } = seasonConfig[season];
+  const { text, iconName, color } = seasonConfig[season];
 
   return (
-    <div className={`season-display ${season}`}>
-      <i className={`massive ${iconName} icon icon-left`} />
-      <h1>{text}</h1>
-      <i className={`massive ${iconName} icon icon-right`} />
-    </div>
+    <a className={`ui image label season-display ${color} image`}>
+      <i className={`large ${iconName} icon`} />
+      {text}
+    </a>
   );
 };
 
