@@ -10,7 +10,7 @@ class App extends React.Component {
   state = { lat: null, errorMessage: "" };
 
   componentDidMount() {
-    fetch("https://jsonplaceholder.typicode.com/users")
+    fetch("https://jsonplaceholder.typicode.com/posts")
       .then(response => response.json())
       .then(json => console.log(json));
 
