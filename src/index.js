@@ -7,22 +7,6 @@ import thunk from "redux-thunk";
 import App from "./components/App";
 import reducers from "./reducers";
 
-/*
-const App = () => {
-  return (
-    <div className="ui container comments">
-      <ApprovalCard>
-        <CommentDetail
-          author="Sam"
-          timeAgo="12:00"
-          content="Nice blog post, man!"
-          avatar={faker.image.avatar()}
-        />
-      </ApprovalCard>
-    </div>
-  );
-};*/
-
 const store = createStore(reducers, applyMiddleware(thunk));
 
 ReactDOM.render(

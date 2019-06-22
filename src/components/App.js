@@ -10,10 +10,6 @@ class App extends React.Component {
   state = { lat: null, errorMessage: "" };
 
   componentDidMount() {
-    fetch("https://jsonplaceholder.typicode.com/posts")
-      .then(response => response.json())
-      .then(json => console.log(json));
-
     window.navigator.geolocation.getCurrentPosition(
       position => this.setState({ lat: position.coords.latitude }),
       err => this.setState({ errorMessage: err.message })
@@ -34,7 +30,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="ui container">
-        <div className="season">{this.renderContent()}</div>
+        {/*<div className="season">{this.renderContent()}</div>*/}
         <div className="">
           <PostList />
         </div>
