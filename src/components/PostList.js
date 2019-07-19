@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { fetchPostsAndUsers } from "../actions";
-import UserHeader from "./UserHeader";
+import ListItem from "./ListItem";
 
 class PostList extends React.Component {
   componentDidMount() {
@@ -9,19 +9,23 @@ class PostList extends React.Component {
   }
 
   renderList() {
-    return this.props.posts.map(post => {
-      return (
-        <div className="item" key={post.id}>
-          <i className="large middle aligned icon user" />
-          <div className="content">
-            <div className="description">
-              <h3>{post.title}</h3>
-              <p>{post.body}</p>
-            </div>
-            <UserHeader userId={post.userId} />
-          </div>
-        </div>
-      );
+    let perPage = 20;
+    let pageCount = this.props.posts.length / perPage;
+
+    console.log("pageCount: ", pageCount);
+
+    return this.props.posts.map((post, index) => {
+      if (index < perPage) {
+        return (
+          <ListItem
+            key={post.id}
+            id={post.id}
+            title={post.title}
+            body={post.body}
+            userId={post.userId}
+          />
+        );
+      }
     });
   }
 
