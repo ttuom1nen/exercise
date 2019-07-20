@@ -3,9 +3,6 @@ import SeasonDisplay from "./SeasonDisplay";
 import Spinner from "./Spinner";
 import PostList from "./PostList";
 
-import CommentDetail from "./CommentDetail";
-import ApprovalCard from "./ApprovalCard";
-
 class App extends React.Component {
   state = { lat: null, errorMessage: "" };
 

@@ -26,11 +26,13 @@ class PostList extends React.Component {
           />
         );
       }
+
+      return null;
     });
   }
 
   render() {
-    return <div className="ui relaxed divided list">{this.renderList()}</div>;
+    return <div className="ui relaxed divided items">{this.renderList()}</div>;
   }
 }
 

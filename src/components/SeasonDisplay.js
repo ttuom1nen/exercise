@@ -27,10 +27,10 @@ const SeasonDisplay = props => {
   const { text, iconName, color } = seasonConfig[season];
 
   return (
-    <a className={`ui image label season-display ${color} image`}>
+    <span className={`ui image label season-display ${color} image`}>
       <i className={`large ${iconName} icon`} />
       {text}
-    </a>
+    </span>
   );
 };
 
