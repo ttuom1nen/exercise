@@ -28,7 +28,6 @@ class App extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <FilterPanel />
         <div className="ui container">
           <div className="season">{this.renderContent()}</div>
           <PostList />

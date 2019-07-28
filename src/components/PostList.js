@@ -11,15 +11,13 @@ class PostList extends React.Component {
   renderList() {
     return this.props.posts.map((post, index) => {
       return (
-        <div className="item" key={index}>
-          <ListItem
-            key={post.id}
-            id={post.id}
-            title={post.title}
-            body={post.body}
-            userId={post.userId}
-          />
-        </div>
+        <ListItem
+          key={post.id}
+          id={post.id}
+          title={post.title}
+          body={post.body}
+          userId={post.userId}
+        />
       );
     });
   }
