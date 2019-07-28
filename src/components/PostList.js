@@ -14,42 +14,71 @@ class PostList extends React.Component {
     return { itemCount, perPage, pageCount };
   };
 
-  renderList() {
+  createPages = () => {
     console.log(this.props);
-
-    /*
-    let itemCount = this.props.posts.length;
-    console.log("TCL: PostList -> renderList -> itemCount", itemCount);
-    let perPage = 5;
-    console.log("TCL: PostList -> renderList -> perPage", perPage);
-    let pageCount = Math.floor((itemCount + perPage - 1) / perPage);
-    console.log("TCL: PostList -> renderList -> pageCount", pageCount);*/
 
     let pagination = this.createPagination(this.props.posts.length, 5);
 
     return this.props.posts.map((post, index) => {
-      //let borderStyle = {}; style={borderStyle}
+      if (index < pagination.pageCount) {
+        //if (index % pagination.perPage === 0) {
+        return (
+          <div key={"page-" + index}>
+            <div>{this.renderList()}</div>
+            <div className="item" key={"pageButton-" + index}>
+              <button
+                style={{
+                  border: "none",
+                  backgroundColor: "unset",
+                  cursor: "pointer"
+                }}
+              >
+                {index + 1}
+              </button>
+            </div>
+          </div>
+        );
+      }
+
+      return null;
+    });
+  };
+
+  renderList = () => {
+    console.log(this.props);
+
+    let pagination = this.createPagination(this.props.posts.length, 5);
+
+    return this.props.posts.map((post, index) => {
+      let borderStyle = {};
 
       if (index % pagination.perPage === 0) {
-        //borderStyle = { border: "1px solid red" };
+        borderStyle = { border: "1px solid red" };
       } else {
-        //borderStyle = { border: "1px solid blue" };
+        borderStyle = { border: "1px solid blue" };
       }
 
       return (
-        <ListItem
-          key={post.id}
-          id={post.id}
-          title={post.title}
-          body={post.body}
-          userId={post.userId}
-        />
+        <div style={borderStyle} key={index}>
+          <ListItem
+            key={post.id}
+            id={post.id}
+            title={post.title}
+            body={post.body}
+            userId={post.userId}
+          />
+        </div>
       );
     });
-  }
+  };
 
   render() {
-    return <div className="ui relaxed divided items">{this.renderList()}</div>;
+    return (
+      <React.Fragment>
+        <div className="ui relaxed divided items" />
+        <div className="ui celled horizontal list">{this.createPages()}</div>
+      </React.Fragment>
+    );
   }
 }
 
