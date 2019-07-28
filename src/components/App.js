@@ -1,9 +1,8 @@
 import React from "react";
 import SeasonDisplay from "./SeasonDisplay";
 import Spinner from "./Spinner";
-//import PostList from "./PostList";
+import PostList from "./PostList";
 import FilterPanel from "./FilterPanel";
-import Pages from "./Pages";
 
 class App extends React.Component {
   state = { lat: null, errorMessage: "" };
@@ -32,7 +31,7 @@ class App extends React.Component {
         <FilterPanel />
         <div className="ui container">
           <div className="season">{this.renderContent()}</div>
-          <Pages />
+          <PostList />
         </div>
       </React.Fragment>
     );
