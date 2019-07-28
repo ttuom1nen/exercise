@@ -2,6 +2,7 @@ import React from "react";
 import SeasonDisplay from "./SeasonDisplay";
 import Spinner from "./Spinner";
 import PostList from "./PostList";
+import FilterPanel from "./FilterPanel";
 
 class App extends React.Component {
   state = { lat: null, errorMessage: "" };
@@ -26,12 +27,13 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="ui container">
-        {/*<div className="season">{this.renderContent()}</div>*/}
-        <div className="">
+      <React.Fragment>
+        <FilterPanel />
+        <div className="ui container">
+          <div className="season">{this.renderContent()}</div>
           <PostList />
         </div>
-      </div>
+      </React.Fragment>
     );
   }
 }

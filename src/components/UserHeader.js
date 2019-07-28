@@ -3,9 +3,6 @@ import { connect } from "react-redux";
 //import { fetchUser } from "../actions";
 
 class UserHeader extends React.Component {
-  /*componentDidMount() {
-    this.props.fetchUser(this.props.userId);
-  }*/
   render() {
     const { user } = this.props;
 
@@ -13,7 +10,16 @@ class UserHeader extends React.Component {
       return null;
     }
 
-    return <span>{user.name}</span>;
+    return (
+      <div className="extra">
+        <img
+          src="img/placeholder.png"
+          className="ui circular avatar image"
+          alt="User thumbnail"
+        />{" "}
+        <span>{user.name}</span>
+      </div>
+    );
   }
 }
 

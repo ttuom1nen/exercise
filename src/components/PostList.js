@@ -8,26 +8,43 @@ class PostList extends React.Component {
     this.props.fetchPostsAndUsers();
   }
 
-  renderList() {
-    let perPage = 20;
-    let pageCount = this.props.posts.length / perPage;
+  createPagination = (itemCount, perPage) => {
+    let pageCount = Math.floor((itemCount + perPage - 1) / perPage);
 
-    console.log("pageCount: ", pageCount);
+    return { itemCount, perPage, pageCount };
+  };
+
+  renderList() {
+    console.log(this.props);
+
+    /*
+    let itemCount = this.props.posts.length;
+    console.log("TCL: PostList -> renderList -> itemCount", itemCount);
+    let perPage = 5;
+    console.log("TCL: PostList -> renderList -> perPage", perPage);
+    let pageCount = Math.floor((itemCount + perPage - 1) / perPage);
+    console.log("TCL: PostList -> renderList -> pageCount", pageCount);*/
+
+    let pagination = this.createPagination(this.props.posts.length, 5);
 
     return this.props.posts.map((post, index) => {
-      if (index < perPage) {
-        return (
-          <ListItem
-            key={post.id}
-            id={post.id}
-            title={post.title}
-            body={post.body}
-            userId={post.userId}
-          />
-        );
+      //let borderStyle = {}; style={borderStyle}
+
+      if (index % pagination.perPage === 0) {
+        //borderStyle = { border: "1px solid red" };
+      } else {
+        //borderStyle = { border: "1px solid blue" };
       }
 
-      return null;
+      return (
+        <ListItem
+          key={post.id}
+          id={post.id}
+          title={post.title}
+          body={post.body}
+          userId={post.userId}
+        />
+      );
     });
   }
 
