@@ -32,3 +32,10 @@ export const fetchUser = id => async dispatch => {
     payload: response.data
   });
 };
+
+export const switchMode = mode => dispatch => {
+  dispatch({
+    type: "SWITCH_MODE",
+    payload: mode
+  });
+};
