@@ -64,7 +64,7 @@ class PostList extends React.Component {
             <i className="th icon" />
           </button>
         </div>
-        <div className="ui relaxed divided items">{this.renderList()}</div>
+        <div className="ui list">{this.renderList()}</div>
       </React.Fragment>
     );
   }
