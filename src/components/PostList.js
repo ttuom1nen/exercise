@@ -10,13 +10,6 @@ class PostList extends React.Component {
     this.props.fetchPostsAndUsers();
   }
 
-  renderContainer = () => {
-    if (this.props.mode === "grid") {
-    }
-
-    return;
-  };
-
   renderList = () => {
     console.log(this.props);
 

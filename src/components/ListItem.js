@@ -20,12 +20,8 @@ const ListItem = props => {
             {props.title}
           </a>
           <div className="meta">
-            <a href="#" style={{ margin: "2px" }}>
-              Date
-            </a>
-            <a href="#" style={{ margin: "2px" }}>
-              Category
-            </a>
+            <span style={{ margin: "2px" }}>Date</span>
+            <span style={{ margin: "2px" }}>Category</span>
           </div>
           <div className="description" style={{ marginBottom: "4px" }}>
             {props.body}

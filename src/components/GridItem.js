@@ -22,7 +22,7 @@ const GridItem = props => {
         <img src="img/placeholder.png" alt="Post thumbnail" />
       </div>
       <div className="content" style={contentStyle}>
-        <a className="header">{props.title}</a>
+        <span className="header">{props.title}</span>
         <div className="meta">
           <span className="date">Joined in 2013</span>
         </div>
