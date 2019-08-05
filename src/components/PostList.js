@@ -11,10 +11,8 @@ class PostList extends React.Component {
   }
 
   renderList = () => {
-    console.log(this.props);
-
     if (this.props.mode === "grid") {
-      return this.props.posts.map((post, index) => {
+      return this.props.posts.map(post => {
         return (
           <GridItem
             key={post.id}
@@ -27,7 +25,7 @@ class PostList extends React.Component {
       });
     }
 
-    return this.props.posts.map((post, index) => {
+    return this.props.posts.map(post => {
       return (
         <ListItem
           key={post.id}

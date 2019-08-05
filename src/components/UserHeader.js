@@ -1,13 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
-import Modal from "./Modal";
 
 class UserHeader extends React.Component {
-  state = { showModal: false };
-
-  handleShowMessageClick = () => this.setState({ showModal: true });
-  handleCloseModal = () => this.setState({ showModal: false });
-
   render() {
     const { user } = this.props;
 
@@ -17,18 +11,8 @@ class UserHeader extends React.Component {
 
     return (
       <React.Fragment>
-        {this.state.showModal ? (
-          <Modal onClose={this.handleCloseModal} name={user.name}>
-            <p>
-              <b>User name:</b> {user.username}
-            </p>
-            <p>
-              <b>City:</b> {user.address.city}
-            </p>
-          </Modal>
-        ) : null}
         <div className="extra">
-          <span className="hand" onClick={this.handleShowMessageClick}>
+          <span className="hand">
             <img
               src="img/placeholder.png"
               className="ui circular avatar image"

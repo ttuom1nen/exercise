@@ -1,8 +1,6 @@
 import React from "react";
-
 //import Spinner from "./Spinner";
 import PostList from "./PostList";
-import FilterPanel from "./FilterPanel";
 
 class App extends React.Component {
   render() {
