@@ -1,5 +1,7 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { connect } from "react-redux";
+import { fetchUsers } from "../actions";
 
 class UserHeader extends React.Component {
   render() {
@@ -12,14 +14,16 @@ class UserHeader extends React.Component {
     return (
       <React.Fragment>
         <div className="extra">
-          <span className="hand">
-            <img
-              src="img/placeholder.png"
-              className="ui circular avatar image"
-              alt="User thumbnail"
-            />
-            <span>{user.name}</span>
-          </span>
+          <Link to={`/userinfo/${user.id}`}>
+            <span className="hand">
+              <img
+                src="img/placeholder.png"
+                className="ui circular avatar image"
+                alt="User thumbnail"
+              />
+              <span>{user.name}</span>
+            </span>
+          </Link>
         </div>
       </React.Fragment>
     );
@@ -27,7 +31,9 @@ class UserHeader extends React.Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  return { user: state.users.find(user => user.id === ownProps.userId) };
+  return {
+    user: state.users.find(user => user.id === ownProps.userId)
+  };
 };
 
 export default connect(mapStateToProps)(UserHeader);

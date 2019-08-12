@@ -33,23 +33,18 @@ export const fetchUser = id => async dispatch => {
   });
 };
 
+export const selectUser = id => dispatch => {
+  const user = "Selected id: " + id;
+
+  dispatch({
+    type: "SELECT_USER",
+    payload: user
+  });
+};
+
 export const switchMode = mode => dispatch => {
   dispatch({
     type: "SWITCH_MODE",
     payload: mode
-  });
-};
-
-export const showModal = ({ modalProps, modalType }) => dispatch => {
-  dispatch({
-    type: "SHOW_MODAL",
-    modalProps,
-    modalType
-  });
-};
-
-export const hideModal = () => dispatch => {
-  dispatch({
-    type: "HIDE_MODAL"
   });
 };
