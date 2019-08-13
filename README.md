@@ -7,5 +7,3 @@ TODO:
 
 - Add pagination
 - Add filtering
-- Make user name clickable for more information
-- Fix location detection
